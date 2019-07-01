@@ -7,13 +7,7 @@ public class PrintPerson {
 
     public static ArrayList<String> printPersons(List<Person> roster, CheckPerson tester) {
         ArrayList<String> arr = new ArrayList<>();
-        for (Person p : roster) {
-            if (tester.test(p)) {
-                arr.add(p.toString());
-                p.print();
-            }
-        }
-
+        roster.forEach(p -> {if(tester.test(p)) {arr.add(p.toString()); p.print();}} );
         return arr;
     }
 

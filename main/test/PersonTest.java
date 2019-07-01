@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.Period;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -12,12 +12,13 @@ import static org.junit.Assert.*;
 public class PersonTest {
     Person person = new Person();
     List<Person> arrayList = new ArrayList<Person>();
+    LocalDate localDate;
 
 
 
     @Before
     public void before() {
-        arrayList.add(new Person());
+        arrayList.add(new Person("steve", LocalDate.of(2017, 3, 01), Person.Sex.MALE, "gaggg@aol.com"  ));
         arrayList.add(new Person());
         arrayList.add(new Person());
         arrayList.add(new Person());
@@ -74,7 +75,7 @@ public class PersonTest {
 
         printPer.printPersons(arrayList, tester);
 
-        Integer expeceted = 5;
+        Integer expeceted = 4;
         Integer actual =  printPer.printPersons(arrayList, tester).size();
 
         Assert.assertEquals(expeceted,actual);
@@ -92,7 +93,25 @@ public class PersonTest {
 
         printPer.printPersons(arrayList, tester);
 
-        Integer expeceted = 5;
+        Integer expeceted = 4;
+        Integer actual =  printPer.printPersons(arrayList, tester).size();
+
+        Assert.assertEquals(expeceted,actual);
+
+
+    }
+
+    @Test
+    public void printPersonsemail() {
+        Predicate<Person> predicate = person ->
+                person.getEmailAddress().equals("rfrieger@gmail.com");
+
+        PrintPerson printPer = new PrintPerson();
+        CheckPerson tester = printPer.new Tester(predicate);
+
+        printPer.printPersons(arrayList, tester);
+
+        Integer expeceted = 4;
         Integer actual =  printPer.printPersons(arrayList, tester).size();
 
         Assert.assertEquals(expeceted,actual);
