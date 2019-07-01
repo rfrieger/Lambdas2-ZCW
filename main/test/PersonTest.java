@@ -71,12 +71,11 @@ public class PersonTest {
             person.getAge() > 21;
 
         PrintPerson printPer = new PrintPerson();
-        CheckPerson tester = printPer.new Tester(predicate);
 
-        printPer.printPersons(arrayList, tester);
+        printPer.printPersons(arrayList, predicate);
 
         Integer expeceted = 4;
-        Integer actual =  printPer.printPersons(arrayList, tester).size();
+        Integer actual =  printPer.printPersons(arrayList, predicate).size();
 
         Assert.assertEquals(expeceted,actual);
 
@@ -89,12 +88,11 @@ public class PersonTest {
                 person.getName().equals("bob");
 
         PrintPerson printPer = new PrintPerson();
-        CheckPerson tester = printPer.new Tester(predicate);
 
-        printPer.printPersons(arrayList, tester);
+        printPer.printPersons(arrayList, predicate);
 
         Integer expeceted = 4;
-        Integer actual =  printPer.printPersons(arrayList, tester).size();
+        Integer actual =  printPer.printPersons(arrayList, predicate).size();
 
         Assert.assertEquals(expeceted,actual);
 
@@ -107,12 +105,11 @@ public class PersonTest {
                 person.getEmailAddress().equals("rfrieger@gmail.com");
 
         PrintPerson printPer = new PrintPerson();
-        CheckPerson tester = printPer.new Tester(predicate);
 
-        printPer.printPersons(arrayList, tester);
+        printPer.printPersons(arrayList, predicate);
 
         Integer expeceted = 4;
-        Integer actual =  printPer.printPersons(arrayList, tester).size();
+        Integer actual =  printPer.printPersons(arrayList, predicate).size();
 
         Assert.assertEquals(expeceted,actual);
 
